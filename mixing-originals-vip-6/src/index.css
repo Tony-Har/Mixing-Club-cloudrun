@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+  
+  --color-mixing-gold: #B07B38;
+  --color-mixing-gold-hover: #9A6A2F;
+  --color-mixing-dark: #404139;
+  --color-mixing-light: #F8F8F8;
+  --color-whatsapp: #25D366;
+  --color-whatsapp-hover: #1EBE5D;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-mixing-light);
+  color: var(--color-mixing-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-serif);
+}
