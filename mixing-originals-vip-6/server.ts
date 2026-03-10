@@ -10,6 +10,25 @@ async function startServer() {
 
   app.use(express.json());
 
+  // Automatic Domain Redirects
+  app.use((req, res, next) => {
+    const host = req.get('host');
+    const targetHost = 'clube.mixingoriginals.com';
+    
+    // Redirect if it's 'club', 'www.club', or 'www.clube'
+    const domainsToRedirect = [
+      'club.mixingoriginals.com',
+      'www.club.mixingoriginals.com',
+      'www.clube.mixingoriginals.com'
+    ];
+
+    if (host && domainsToRedirect.includes(host)) {
+      return res.redirect(301, `https://${targetHost}${req.url}`);
+    }
+    
+    next();
+  });
+
   // API routes FIRST
   app.post('/api/submit-form', async (req, res) => {
     try {
